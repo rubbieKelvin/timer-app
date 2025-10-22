@@ -5,7 +5,7 @@ import QtQuick.Controls.Material 2.0
 
 import "./components/" as MyComponent
 
-ApplicationWindow{
+ApplicationWindow {
     id: root
     width: 430
     height: 248
@@ -17,9 +17,8 @@ ApplicationWindow{
     property var starttime
     property var pausetime: null
 
-    FontLoader{
+    FontLoader {
         id: basefont
-        name: "poppins"
         source: "./resources/fonts/WorkSans-VariableFont_wght.ttf"
     }
 
@@ -28,14 +27,14 @@ ApplicationWindow{
     Material.theme: Material.Dark
     Material.accent: Material.Teal
 
-    MyComponent.TimeLabel{
+    MyComponent.TimeLabel {
         id: timelabel
         x: 71
         y: 50
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
-    RowLayout{
+    RowLayout {
         id: buttons
         x: 102
         y: 162
@@ -58,7 +57,7 @@ ApplicationWindow{
         }
 
         Button {
-            text: qsTr((paused) ? "play":"pause")
+            text: qsTr((paused) ? "play" : "pause")
             icon.source: "./resources/images/player-pause-circle.svg"
             Layout.fillWidth: true
             Material.background: "#121212"
@@ -67,12 +66,10 @@ ApplicationWindow{
             onClicked: {
                 paused = !paused;
 
-                if (paused){
+                if (paused) {
                     pausetime = new Date();
-                }else{
-                    starttime.setMilliseconds(
-                        new Date() - pausetime
-                    );
+                } else {
+                    starttime.setMilliseconds(new Date() - pausetime);
                     pausetime = null;
                 }
             }
@@ -104,7 +101,7 @@ ApplicationWindow{
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
-    Timer{
+    Timer {
         id: stopwatch
         running: root.running && !root.paused
         repeat: true

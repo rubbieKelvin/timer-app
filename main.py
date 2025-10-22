@@ -2,11 +2,12 @@
 # https://twitter.com/kelvinrubbie
 # dev.rubbie@gmail.com
 
-import os, sys
-from PySide2 import QtQml, QtGui
+import os
+import sys
+from PySide6 import QtQml, QtGui
+
 
 if __name__ == "__main__":
-    
     # set appplication style to google's material design style
     os.environ["QT_QUICK_CONTROLS_STYLE"] = "Material"
 
@@ -20,7 +21,7 @@ if __name__ == "__main__":
     qmlengine.load("./qtquick/main.qml")
 
     # run main loop
-    exit_code = app.exec_()
+    exit_code = app.exec()
 
     # quit application
     sys.exit(exit_code)
